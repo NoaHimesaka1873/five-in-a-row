@@ -1,21 +1,6 @@
 #This Module checks if the stones are placed in 5 in the row.
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 
-def printboard(board, w, h):
-    xpos = 0
-    ypos = 0
-    print(("+-"*w) + "+" )
-    for ypos in range(0,w):
-        line = ""
-        for xpos in range(0,h):
-            line += "|{0}".format(board[xpos][ypos])
-        print(line + "|")
-        print(("+-"*w) + "+" )
-    
-
-
-
-
 def ifstonesarein5intherow(board, w, h):
     tempvar = None
     for x in range(0,w-4):
@@ -30,4 +15,3 @@ def ifstonesarein5intherow(board, w, h):
                 tempvar = board[x][y]
             else:
                 tempvar = 0
-    return tempvar
