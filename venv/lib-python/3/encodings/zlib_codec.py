@@ -56,6 +56,7 @@ class IncrementalDecoder(codecs.IncrementalDecoder):
     def reset(self):
         self.decompressobj = zlib.decompressobj()
 
+
 class StreamWriter(Codec, codecs.StreamWriter):
     charbuffertype = bytes
 
@@ -75,3 +76,6 @@ def getregentry():
         streamwriter=StreamWriter,
         _is_text_encoding=False,
     )
+
+
+

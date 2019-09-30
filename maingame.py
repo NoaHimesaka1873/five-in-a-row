@@ -4,23 +4,23 @@ __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 
 w, h = 10, 10;
 Board = [[" " for x in range(w)] for y in range(h)]
-ruwin = None
+winner = None
 
-gametermio.printboard(Board, w, h)
+gametermio.print_board(Board, w, h)
 while True:   
-    input = gametermio.getinput()
-    inputx, inputy = input.split()
-    Board[inputx][inputy] = "O"
-    ruwin = gameroutine.ifstonesarein5intherow(Board, w, h)
-    if ruwin != None:
-        print(ruwin + " won the game!")
+    term_input = gametermio.get_input()
+    input_x, input_y = term_input.split()
+    Board[input_x][input_y] = "O"
+    winner = gameroutine.if_stones_are_in_5_in_the_row(Board, w, h)
+    if winner is not None:
+        print(winner + " won the game!")
         break
-    gametermio.printboard(Board, w, h)
-    input = gametermio.getinput()
-    inputx, inputy = input.split()
-    Board[inputx][inputy] = "X"
-    ruwin = gameroutine.ifstonesarein5intherow(Board, w, h)
-    gametermio.printboard(Board, w, h)
-    if ruwin != None:
-        print(ruwin + " won the game!")
+    gametermio.print_board(Board, w, h)
+    term_input = gametermio.get_input()
+    input_x, input_y = term_input.split()
+    Board[input_x][input_y] = "X"
+    winner = gameroutine.if_stones_are_in_5_in_the_row(Board, w, h)
+    gametermio.print_board(Board, w, h)
+    if winner is not None:
+        print(winner + " won the game!")
         break
