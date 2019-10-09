@@ -2,9 +2,29 @@ import gameroutine
 import gametermio
 
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
+__license__ = f"""
+    Copyright (C) 2018 - 2019 {__author__}
 
-w, h = 10, 10
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
+w, h = 9, 9
 Board = [[" " for x in range(w)] for y in range(h)]
+
+print(__license__)
+print("If you continue to use this software, you're agreeing to the license.")
+print("Exit this program and DELETE IT IMMEDIATELY to deny.")
+input("Press enter key to continue...")
+
 gametermio.print_board(Board, w, h)
 while True:
     term_input = gametermio.get_input()
