@@ -1,7 +1,6 @@
+# This file is for separating user i/o from main game for future GUI implementation... maybe?
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 
-
-# This file is for separating user i/o from main game for future GUI implementation.
 
 def print_board(board, w, h):
     x_pos = 0
@@ -16,5 +15,5 @@ def print_board(board, w, h):
 
 
 def get_input():
-    input_ = input_("Input(ex: \"1,1\" for 1,1):")
+    input_ = input("Input(ex: \"1,1\" for 1,1):")
     return input_
