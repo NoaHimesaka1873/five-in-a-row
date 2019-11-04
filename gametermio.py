@@ -2,7 +2,7 @@
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 
 
-def print_board(board, w, h):
+def printb(board, w, h):
     x_pos = 0
     y_pos = 0
     print(("+-" * w) + "+")
@@ -14,6 +14,6 @@ def print_board(board, w, h):
         print(("+-" * w) + "+")
 
 
-def get_input():
+def inputb():
     input_ = input("Input(ex: \"1,1\" for 1,1):")
     return input_

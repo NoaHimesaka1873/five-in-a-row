@@ -2,8 +2,9 @@ import gameroutine
 import gametermio
 
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
+__year__ = "2018 - 2019"
 __license__ = f"""
-    Copyright (C) 2018 - 2019 {__author__}
+    Copyright (C) {__year__} {__author__}
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,23 +26,23 @@ print("If you continue to use this software, you're agreeing to the license.")
 print("Exit this program and DELETE IT IMMEDIATELY to deny.")
 input("Press enter key to continue...")
 
-gametermio.print_board(Board, w, h)
+gametermio.printb(Board, w, h)
 while True:
-    term_input = gametermio.get_input()
+    term_input = gametermio.inputb()
     input_x = int(term_input[0])-1
     input_y = int(term_input[2])-1
     Board[input_x][input_y] = "O"
-    winner = gameroutine.if_stones_are_in_5_in_the_row(Board, w, h)
-    gametermio.print_board(Board, w, h)
+    winner = gameroutine.checkstone(Board, w, h)
+    gametermio.printb(Board, w, h)
     if winner is not None:
         print(winner + " won the game!")
         break
-    term_input = gametermio.get_input()
+    term_input = gametermio.inputb()
     input_x = int(term_input[0])-1
     input_y = int(term_input[2])-1
     Board[input_x][input_y] = "X"
-    gametermio.print_board(Board, w, h)
-    winner = gameroutine.if_stones_are_in_5_in_the_row(Board, w, h)
+    winner = gameroutine.checkstone(Board, w, h)
+    gametermio.printb(Board, w, h)
     if winner is not None:
         print(winner + " won the game!")
         break
