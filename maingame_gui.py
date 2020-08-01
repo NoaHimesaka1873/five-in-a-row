@@ -1,7 +1,5 @@
 import gameroutine
-import gametermio
 import pygame
-from pygame.locals import *
 
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 __year__ = "2018 - 2019"
@@ -53,7 +51,6 @@ cooldown = 300
 last = pygame.time.get_ticks()
 # -------- Main Program Loop -----------
 while not done:
-    
     for event in pygame.event.get():  # User did something
         if event.type == pygame.QUIT:  # If user clicked close
             done = True  # Flag that we are done so we exit this loop
@@ -76,8 +73,6 @@ while not done:
                         turn = 1
                     print("Click ", pos, "Grid coordinates: ", row, column)
                     winner = gameroutine.checkstone(Board, w, h, 0)
-
-            
  
     # Set the screen background
     screen.fill(black)
