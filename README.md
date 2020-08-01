@@ -1,4 +1,4 @@
-# matchfive
+# Five-in-a-row
 Just a little game. Very experimental. Completely written in Python 3. GUI version uses PyGame.
 # Licence
 See LICENCE. Licenced with GNU GPL Version 3
