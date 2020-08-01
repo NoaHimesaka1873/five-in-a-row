@@ -1,4 +1,4 @@
-import gameroutine_gui as gameroutine
+import gameroutine
 import gametermio
 import pygame
 from pygame.locals import *
@@ -25,18 +25,18 @@ Board = [[0 for x in range(w)] for y in range(h)]
 
 pygame.init()
 
-size = width, height = 255, 255
+size = width, height = 510, 510
 black = 0, 0, 0
 white = 255, 255, 255
 rose_gold = 183, 110, 121
 gold = 212, 175, 55
 
 # This sets the WIDTH and HEIGHT of each grid location
-WIDTH = 20
-HEIGHT = 20
+WIDTH = 40
+HEIGHT = 40
  
 # This sets the margin between each cell
-MARGIN = 5
+MARGIN = 10
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("")
@@ -58,23 +58,25 @@ while not done:
         if event.type == pygame.QUIT:  # If user clicked close
             done = True  # Flag that we are done so we exit this loop
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            now = pygame.time.get_ticks()
-            if now - last >= cooldown:
-                last = now
-                # User clicks the mouse. Get the position
-                pos = pygame.mouse.get_pos()
-                # Change the x/y screen coordinates to grid coordinates
-                column = pos[0] // (WIDTH + MARGIN)
-                row = pos[1] // (HEIGHT + MARGIN)
-                # Set that location to one
-                if Board[row][column] == 0:
-                    Board[row][column] = turn
-                if turn == 1:
-                    turn = 2
-                elif turn == 2:
-                    turn = 1
-                print("Click ", pos, "Grid coordinates: ", row, column)
-                winner = gameroutine.checkstone(Board, w, h)
+            if winner is None:
+                now = pygame.time.get_ticks()
+                if now - last >= cooldown:
+                    last = now
+                    # User clicks the mouse. Get the position
+                    pos = pygame.mouse.get_pos()
+                    # Change the x/y screen coordinates to grid coordinates
+                    column = pos[0] // (WIDTH + MARGIN)
+                    row = pos[1] // (HEIGHT + MARGIN)
+                    # Set that location to one
+                    if Board[row][column] == 0:
+                        Board[row][column] = turn
+                    if turn == 1:
+                        turn = 2
+                    elif turn == 2:
+                        turn = 1
+                    print("Click ", pos, "Grid coordinates: ", row, column)
+                    winner = gameroutine.checkstone(Board, w, h, 0)
+
             
  
     # Set the screen background
@@ -99,7 +101,7 @@ while not done:
     clock.tick(60)
 
     if winner is not None:
-        print("Winner ", winner)
+        print("Winner : ", winner)
         screen.fill(black)
         font = pygame.font.Font(None, 30)
         text = font.render("Player {} won the game!".format(winner), 1, gold)
