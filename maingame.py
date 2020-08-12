@@ -29,8 +29,8 @@ input("Press enter key to continue...")
 gametermio.printb(Board, w, h)
 while True:
     term_input = gametermio.inputb()
-    input_x = int(term_input[0])-1
-    input_y = int(term_input[2])-1
+    input_x = int(term_input[0]) - 1
+    input_y = int(term_input[2]) - 1
     Board[input_x][input_y] = "O"
     winner = gameroutine.checkstone(Board, w, h)
     gametermio.printb(Board, w, h)
@@ -38,8 +38,8 @@ while True:
         print(winner + " won the game!")
         break
     term_input = gametermio.inputb()
-    input_x = int(term_input[0])-1
-    input_y = int(term_input[2])-1
+    input_x = int(term_input[0]) - 1
+    input_y = int(term_input[2]) - 1
     Board[input_x][input_y] = "X"
     winner = gameroutine.checkstone(Board, w, h)
     gametermio.printb(Board, w, h)

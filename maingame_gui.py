@@ -1,5 +1,6 @@
-import gameroutine
 import pygame
+
+import gameroutine
 
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 __year__ = "2018 - 2019"
@@ -32,7 +33,7 @@ gold = 212, 175, 55
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH = 40
 HEIGHT = 40
- 
+
 # This sets the margin between each cell
 MARGIN = 10
 
@@ -41,7 +42,7 @@ pygame.display.set_caption("")
 
 # Loop until the user clicks the close button.
 done = False
- 
+
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
@@ -73,10 +74,10 @@ while not done:
                         turn = 1
                     print("Click ", pos, "Grid coordinates: ", row, column)
                     winner = gameroutine.checkstone(Board, w, h, 0)
- 
+
     # Set the screen background
     screen.fill(black)
- 
+
     # Draw the grid
     for row in range(10):
         for column in range(10):
@@ -91,7 +92,7 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
- 
+
     # Limit to 60 frames per second
     clock.tick(60)
 
@@ -104,10 +105,10 @@ while not done:
         textpos.centerx = screen.get_rect().centerx
         textpos.centery = screen.get_rect().centery
         screen.blit(text, textpos)
- 
+
     # Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
- 
+
 # Be IDLE friendly. If you forget this line, the program will 'hang'
 # on exit.
 pygame.quit()

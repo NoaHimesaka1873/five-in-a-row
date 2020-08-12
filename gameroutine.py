@@ -2,7 +2,7 @@
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
 
 
-def checkstone(board, w, h, checkagainst = " "):
+def checkstone(board, w, h, checkagainst=" "):
     for x in range(0, w - 4):
         for y in range(0, h):
             if board[x][y] == board[x + 1][y] == board[x + 2][y] == board[x + 3][y] == board[x + 4][y]:
