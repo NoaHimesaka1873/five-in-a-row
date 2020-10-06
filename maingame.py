@@ -2,7 +2,7 @@ import gameroutine
 import gametermio
 
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
-__year__ = "2018 - 2019"
+__year__ = "2018 - 2020"
 __license__ = f"""
     Copyright (C) {__year__} {__author__}
 
