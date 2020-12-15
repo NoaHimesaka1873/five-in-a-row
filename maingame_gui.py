@@ -1,5 +1,5 @@
 import pygame
-
+import argparse
 import gameroutine
 
 __author__ = "Woohyun Cho (aka KafuChinoDesu in GitHub)"
@@ -19,14 +19,18 @@ __license__ = f"""
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-w, h = 10, 10  # Sets the width and height of the board
+
+parser = argparse.ArgumentParser(description="A Simple Five-in-a-row (Gomoku) game.")
+parser.add_argument("-ww", help="Sets the width of the board.", type=int, default=15, metavar="width")
+parser.add_argument("-hh", help="Sets the height of the board.", type=int, default=15, metavar="height")
+args = parser.parse_args()
+w, h = args.ww, args.hh  # Sets the width and height of the board
 Board = [[0 for x in range(w)] for y in range(h)]  # Initializes the board
 
 # This starts PyGame engine.
 pygame.init()
 
 # DO NOT EDIT THESE VALUES UNLESS IF YOU KNOW WHAT YOU'RE DOING
-size = width, height = 510, 510  # Sets the size of the window
 # You can edit these colours to whatever you want. Just be careful.
 black = 0, 0, 0  # Colour Black
 white = 255, 255, 255  # Colour White
@@ -43,6 +47,8 @@ HEIGHT = 40
 
 # This sets the margin between each cell
 MARGIN = 10
+
+size = width, height = (w * WIDTH) + ((w + 1) * MARGIN), (h * HEIGHT) + ((h + 1) * MARGIN)  # Sets the size of the window
 
 screen = pygame.display.set_mode(size)  # Sets screen size according to size variable
 pygame.display.set_caption("Five-in-a-row")  # Sets screen title
@@ -90,8 +96,8 @@ while not done:
     screen.fill(black)
 
     # Draw the grid
-    for row in range(10):
-        for column in range(10):
+    for row in range(h):
+        for column in range(w):
             colour = white
             if Board[row][column] == 1:
                 colour = p1colour
